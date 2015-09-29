@@ -1,30 +1,19 @@
-/// <reference path="../typings/all.d.ts" />
+/// <reference path="../typings/angular2-meteor.d.ts" />
+import {Component, View, bootstrap} from 'angular2/angular2';
 
-import {Component, View, bind} from 'angular2/angular2';
-
-import {Router, ROUTER_BINDINGS, RouterOutlet, ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
-
-import {LocationStrategy, Location, HashLocationStrategy} from 'angular2/router';
-
-import {PartiesCmp} from './parties/parties';
-import {PartyDetailsCmp} from './party-details/party-details';
-
-import {bootstrap} from 'angular2-meteor';
-
+// Annotation section
 @Component({
-  selector: 'socially'
+  selector: 'my-app'
 })
 @View({
-  template: '<router-outlet></router-outlet>',
-  directives: [ROUTER_DIRECTIVES, PartiesCmp, PartyDetailsCmp]
+  template: '<h1>Hello {{ name }}</h1>'
 })
-@RouteConfig([
-  {path: '/',  component: PartiesCmp},
-  {path: '/party/:partyId', as: 'party-details', component: PartyDetailsCmp}
-])
-class Socially {}
+// Component controller
+class MyAppComponent {
+  name: string;
+  constructor() {
+    this.name = 'World';
+  }
+}
 
-bootstrap(Socially, [
-  ROUTER_BINDINGS,
-  bind(LocationStrategy).toClass(HashLocationStrategy)
-]);
+bootstrap(MyAppComponent);
