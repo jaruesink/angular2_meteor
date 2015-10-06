@@ -11,6 +11,6 @@ import {Component, View} from 'angular2/angular2';
 export class EventCard {
   event_name: string;
   constructor(){
-    this.event_name = "Event Name"
+    this.event_name = "Hello World"
   }
 }

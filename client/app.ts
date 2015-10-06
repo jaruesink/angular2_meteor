@@ -14,7 +14,7 @@ import {EventCard} from 'client/views/event_card/EventCard';
 class Main {
   name: string;
   constructor() {
-    this.name = 'World';
+    //nothing here yet
   }
 }
 
